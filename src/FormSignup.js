@@ -1,9 +1,12 @@
  import React from 'react'
+ import useForm from './useForm'
  
  const FormSignup = () => {
+     const {handleChange, values, handleSubmit} = useForm ();
+
      return (
          <div className="form-content-right">
-             <form action="" className="form">
+             <form action="" className="form" onSubmit={handleSubmit}>
                  <h1>Get started with us today! Create your account and fill out</h1>
                  <div className="form-inputs">
                      <label htmlFor="username"
@@ -16,6 +19,8 @@
                          name="username"
                          className="form-input"
                          placeholder="Enter your username"
+                         value={values.username}
+                         onChange={handleChange}
                      />
                      </div>
                      <div className="form-inputs">
@@ -29,6 +34,8 @@
                          name="email"
                          className="form-input"
                          placeholder="Enter your email"
+                         value={values.email}
+                         onChange={handleChange}
                      />
                  </div>
                  <div className="form-inputs">
@@ -42,6 +49,8 @@
                          name="password"
                          className="form-input"
                          placeholder="Enter your password"
+                         value={values.password}
+                         onChange={handleChange}
                      />
                  </div>
                  <div className="form-inputs">
@@ -51,10 +60,12 @@
                      </label>
                      <input
                          email="password2"
-                         type="password2"
+                         type="password"
                          name="password2"
                          className="form-input"
                          placeholder="Confirm your password"
+                         value={values.password2}
+                         onChange={handleChange}
                      />
                  </div>
                  <button className="form-input-btn"
@@ -62,7 +73,7 @@
                      Sign up
                  </button>
                  <span className="form-input-login">
-                     Already have an account? Login <a href="#"></a>
+                     Already have an account? Login <a href="#">here</a>
                  </span>
              </form>
          </div>

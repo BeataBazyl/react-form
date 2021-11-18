@@ -1,27 +1,29 @@
  import React from 'react'
  import useForm from './useForm'
- 
+ import validate from './validate'; 
+
  const FormSignup = () => {
-     const {handleChange, values, handleSubmit} = useForm ();
+     const {handleChange, values, handleSubmit, errors} = useForm (validate);
 
      return (
          <div className="form-content-right">
              <form action="" className="form" onSubmit={handleSubmit}>
-                 <h1>Get started with us today! Create your account and fill out</h1>
+                 <h1>Zacznij juz dzisiaj! Załóż konto i wypełnij formularz</h1>
                  <div className="form-inputs">
                      <label htmlFor="username"
                      className="form-label">
-                         Username
+                         Nazwa użytkownika
                      </label>
                      <input
                          id="username"
                          type="text"
                          name="username"
                          className="form-input"
-                         placeholder="Enter your username"
+                         placeholder="Wprowadź nazwę użytkownika"
                          value={values.username}
                          onChange={handleChange}
                      />
+                        {errors.username && <p>{errors.username}</p>}
                      </div>
                      <div className="form-inputs">
                      <label htmlFor="email"
@@ -41,7 +43,7 @@
                  <div className="form-inputs">
                      <label htmlFor="password"
                      className="form-label">
-                         Password
+                         Hasło
                      </label>
                      <input
                          email="password"
@@ -56,24 +58,24 @@
                  <div className="form-inputs">
                      <label htmlFor="password2"
                      className="form-label">
-                         Confirm Password
+                          Potwierdź hasło
                      </label>
                      <input
                          email="password2"
                          type="password"
                          name="password2"
                          className="form-input"
-                         placeholder="Confirm your password"
+                         placeholder="Potwierdź hasło"
                          value={values.password2}
                          onChange={handleChange}
                      />
                  </div>
                  <button className="form-input-btn"
                  type="submit">
-                     Sign up
+                     Zarejestruj się
                  </button>
                  <span className="form-input-login">
-                     Already have an account? Login <a href="#">here</a>
+                     Masz konto? Zaloguj się <a href="#">tutaj</a>
                  </span>
              </form>
          </div>

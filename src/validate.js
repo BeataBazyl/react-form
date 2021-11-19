@@ -10,7 +10,7 @@ export default function validate(values) {
     // }
   
     if (!values.email) {
-      errors.email = 'Email required';
+      errors.email = 'Email jest wymagany';
     } else if (!/\S+@\S+\.\S+/.test(values.email)) {
       errors.email = 'Email jest błędny';
     }

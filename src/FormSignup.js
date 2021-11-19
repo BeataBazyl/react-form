@@ -1,9 +1,10 @@
  import React from 'react'
  import useForm from './useForm'
- import validate from './validate'; 
+ import validate from './validate';
+ import "./Form.css";
 
- const FormSignup = () => {
-     const {handleChange, values, handleSubmit, errors} = useForm (validate);
+ const FormSignup = ({submitForm}) => {
+     const {handleChange, values, handleSubmit, errors} = useForm (submitForm,validate);
 
      return (
          <div className="form-content-right">
@@ -23,7 +24,7 @@
                          value={values.username}
                          onChange={handleChange}
                      />
-                        {errors.username && <p>{errors.username}</p>}
+                     {errors.username && <p>{errors.username}</p>}
                      </div>
                      <div className="form-inputs">
                      <label htmlFor="email"
@@ -35,10 +36,12 @@
                          type="email"
                          name="email"
                          className="form-input"
-                         placeholder="Enter your email"
+                         placeholder="Wprowadź adres email"
                          value={values.email}
                          onChange={handleChange}
                      />
+                    {errors.email && <p>{errors.email}</p>}
+
                  </div>
                  <div className="form-inputs">
                      <label htmlFor="password"
@@ -50,10 +53,12 @@
                          type="password"
                          name="password"
                          className="form-input"
-                         placeholder="Enter your password"
+                         placeholder="Wprowadź hasło"
                          value={values.password}
                          onChange={handleChange}
                      />
+                    {errors.password && <p>{errors.password}</p>}
+
                  </div>
                  <div className="form-inputs">
                      <label htmlFor="password2"
@@ -69,6 +74,8 @@
                          value={values.password2}
                          onChange={handleChange}
                      />
+                     {errors.password2 && <p>{errors.password2}</p>}
+
                  </div>
                  <button className="form-input-btn"
                  type="submit">
